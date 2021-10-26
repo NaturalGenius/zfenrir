@@ -8,5 +8,11 @@
   	<module>zfenrir-user</module>
   	<module>zfenrir-common</module>
   	<module>zfenrir-util</module>
+  	<module>zfenrir-dependencies</module>
   </modules>
+  
+  <properties>
+    <zfenrir.dependencies.version>1.0.0-SNAPSHOT</zfenrir.dependencies.version>
+    <zfenrir.version>1.0.0-SNAPSHOT</zfenrir.version>
+  </properties>
 </project>
