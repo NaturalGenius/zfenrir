@@ -1,3 +1,12 @@
 spring:
   profiles:
     active:    - qa
+  swagger:    enabled: true
+    base-package: com.zfenrir.user.api.controller
+    title: zfenrir-user-api
+    description: zfenrir-user-api
+response:
+   result:
+     handler:
+       base:
+         packages: com.zfenrir.user.api.controller

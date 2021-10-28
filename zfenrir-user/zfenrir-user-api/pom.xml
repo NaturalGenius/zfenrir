@@ -18,20 +18,12 @@
         </dependency>
      </dependencies>
   </dependencyManagement>
-  
   <dependencies>
-     <dependency>
-          <groupId>com.zfenrir</groupId>
-          <artifactId>zfenrir-dependencies</artifactId>
-          <version>${zfenrir.dependencies.version}</version>
-          <type>pom</type>
-     </dependency>
      <dependency>
           <groupId>com.zfenrir</groupId>
           <artifactId>zfenrir-user-domain</artifactId>
           <version>1.0.0-SNAPSHOT</version>
      </dependency>
-     
   </dependencies>
   <build>
         <finalName>zfenrir-user-api-${zfenrir.version}</finalName>

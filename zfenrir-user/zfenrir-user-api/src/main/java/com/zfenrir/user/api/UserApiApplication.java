@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.zfenrir.user",
+    "com.zfenrir.common"})
 public class UserApiApplication {
     
     public static void main(String[] args) {
