@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.zfenrir</groupId>
     <artifactId>zfenrir</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${zfenrir.version}</version>
   </parent>
   <artifactId>zfenrir-dependencies</artifactId>
   <version>1.0.0-SNAPSHOT</version>
@@ -48,6 +48,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 		<dependency>
            <groupId>org.aspectj</groupId>
            <artifactId>aspectjrt</artifactId>

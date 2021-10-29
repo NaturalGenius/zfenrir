@@ -3,10 +3,9 @@
   <parent>
     <groupId>com.zfenrir</groupId>
     <artifactId>zfenrir</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${zfenrir.version}</version>
   </parent>
   <artifactId>zfenrir-common</artifactId>
-  <version>${zfenrir.version}</version>
   <dependencyManagement>
      <dependencies>
         <dependency>
