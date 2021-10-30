@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.zfenrir.common.common.Response;
+import com.zfenrir.common.common.entity.Response;
 import com.zfenrir.common.enums.GlobalResponseCode;
 import com.zfenrir.common.exception.ZfenrirException;
 

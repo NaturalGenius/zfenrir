@@ -1,7 +1,8 @@
-package com.zfenrir.common.common;
+package com.zfenrir.common.common.entity;
 
 import java.io.Serializable;
 
+import com.zfenrir.common.common.interfaces.ResponseCode;
 import com.zfenrir.common.exception.ZfenrirException;
 
 public class Response<T> implements Serializable{

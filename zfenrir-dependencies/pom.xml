@@ -12,6 +12,8 @@
   <properties>
      <spring.boot.version>2.5.6</spring.boot.version>
      <battcn.swagger.version>2.1.5-RELEASE</battcn.swagger.version>
+     <mybatis.plus.version>3.4.3.4</mybatis.plus.version>
+     <mybatis.plus.generator.version>3.5.1</mybatis.plus.generator.version>
   </properties>
   <dependencyManagement>
       <dependencies>
@@ -26,6 +28,16 @@
                 <groupId>com.battcn</groupId>
                  <artifactId>swagger-spring-boot-starter</artifactId>
                  <version>${battcn.swagger.version}</version>
+            </dependency>
+            <dependency>
+               <groupId>com.baomidou</groupId>
+               <artifactId>mybatis-plus-boot-starter</artifactId>
+               <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+               <groupId>com.baomidou</groupId>
+               <artifactId>mybatis-plus-generator</artifactId>
+               <version>${mybatis.plus.generator.version}</version>
             </dependency>
       </dependencies>
   </dependencyManagement>
@@ -64,23 +76,29 @@
             <groupId>com.battcn</groupId>
             <artifactId>swagger-spring-boot-starter</artifactId>
         </dependency>
-		<dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-        <artifactId>junit-vintage-engine</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.70</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+         <dependency>
+               <groupId>com.baomidou</groupId>
+               <artifactId>mybatis-plus-generator</artifactId>
+         </dependency>
+         <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		 </dependency>
+                <!-- 模板引擎 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.0</version>
         </dependency>
 	</dependencies>
 </project>

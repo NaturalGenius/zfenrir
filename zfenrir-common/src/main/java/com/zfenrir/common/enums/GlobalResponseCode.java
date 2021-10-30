@@ -1,6 +1,6 @@
 package com.zfenrir.common.enums;
 
-import com.zfenrir.common.common.ResponseCode;
+import com.zfenrir.common.common.interfaces.ResponseCode;
 
 public enum GlobalResponseCode implements ResponseCode {
     SUCCESS(200, "OK"),

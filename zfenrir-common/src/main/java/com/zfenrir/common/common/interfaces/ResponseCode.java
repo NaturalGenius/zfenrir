@@ -1,4 +1,4 @@
-package com.zfenrir.common.common;
+package com.zfenrir.common.common.interfaces;
 
 public interface ResponseCode {
 

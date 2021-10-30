@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.zfenrir.common.annotation.ResponseHandleNo;
-import com.zfenrir.common.common.Response;
+import com.zfenrir.common.common.entity.Response;
 import com.zfenrir.common.enums.GlobalResponseCode;
 import com.zfenrir.util.annotation.AnnotationUtil;
 

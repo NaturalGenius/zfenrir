@@ -1,6 +1,6 @@
 package com.zfenrir.common.exception;
 
-import com.zfenrir.common.common.ResponseCode;
+import com.zfenrir.common.common.interfaces.ResponseCode;
 import com.zfenrir.common.enums.GlobalResponseCode;
 
 /**
