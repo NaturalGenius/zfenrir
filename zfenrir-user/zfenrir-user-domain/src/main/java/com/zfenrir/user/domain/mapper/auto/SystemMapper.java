@@ -1,6 +1,6 @@
 package com.zfenrir.user.domain.mapper.auto;
 
-import com.zfenrir.user.domain.entity.auto.System;
+import com.zfenrir.user.domain.entity.auto.SystemEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
-public interface SystemMapper extends BaseMapper<System> {
+public interface SystemMapper extends BaseMapper<SystemEntity> {
 
 }

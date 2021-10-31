@@ -2,6 +2,7 @@ package com.zfenrir.user.domain.entity.auto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -11,59 +12,43 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
-public class Permission implements Serializable {
+@TableName("system_operate_log")
+public class SystemOperateLogEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增id
+     * 自增主键
      */
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 权限名称
+     * 操作类型
      */
-    private String name;
+    private Integer type;
 
     /**
-     * 权限编码
+     * 操作实体id
      */
-    private String code;
+    private Integer entityId;
 
     /**
-     * 父ID
+     * 旧值
      */
-    private Integer pid;
+    private String oldValue;
 
     /**
-     * 权限控制器
+     * 新值
      */
-    private String control;
+    private String newValue;
 
     /**
-     * 所属系统
+     * 备注
      */
-    private String system;
-
-    /**
-     * 菜单 1 菜单 2 按钮
-     */
-    private Integer menu;
-
-    /**
-     * 请求路径
-     */
-    private String url;
-
-    private String method;
-
-    /**
-     * 状态 1正常 2 删除
-     */
-    private Integer status;
+    private String remark;
 
     /**
      * 创建人id
@@ -104,76 +89,44 @@ public class Permission implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getType() {
+        return type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public String getCode() {
-        return code;
+    public Integer getEntityId() {
+        return entityId;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setEntityId(Integer entityId) {
+        this.entityId = entityId;
     }
 
-    public Integer getPid() {
-        return pid;
+    public String getOldValue() {
+        return oldValue;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
     }
 
-    public String getControl() {
-        return control;
+    public String getNewValue() {
+        return newValue;
     }
 
-    public void setControl(String control) {
-        this.control = control;
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
     }
 
-    public String getSystem() {
-        return system;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setSystem(String system) {
-        this.system = system;
-    }
-
-    public Integer getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Integer menu) {
-        this.menu = menu;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Integer getCreateId() {
@@ -226,23 +179,15 @@ public class Permission implements Serializable {
 
     public static final String ID = "id";
 
-    public static final String NAME = "name";
+    public static final String TYPE = "type";
 
-    public static final String CODE = "code";
+    public static final String ENTITY_ID = "entity_id";
 
-    public static final String PID = "pid";
+    public static final String OLD_VALUE = "old_value";
 
-    public static final String CONTROL = "control";
+    public static final String NEW_VALUE = "new_value";
 
-    public static final String SYSTEM = "system";
-
-    public static final String MENU = "menu";
-
-    public static final String URL = "url";
-
-    public static final String METHOD = "method";
-
-    public static final String STATUS = "status";
+    public static final String REMARK = "remark";
 
     public static final String CREATE_ID = "create_id";
 
@@ -258,17 +203,13 @@ public class Permission implements Serializable {
 
     @Override
     public String toString() {
-        return "Permission{" +
+        return "SystemOperateLogEntity{" +
         "id=" + id +
-        ", name=" + name +
-        ", code=" + code +
-        ", pid=" + pid +
-        ", control=" + control +
-        ", system=" + system +
-        ", menu=" + menu +
-        ", url=" + url +
-        ", method=" + method +
-        ", status=" + status +
+        ", type=" + type +
+        ", entityId=" + entityId +
+        ", oldValue=" + oldValue +
+        ", newValue=" + newValue +
+        ", remark=" + remark +
         ", createId=" + createId +
         ", createName=" + createName +
         ", createTime=" + createTime +

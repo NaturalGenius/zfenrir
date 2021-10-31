@@ -2,6 +2,7 @@ package com.zfenrir.user.domain.entity.auto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -11,14 +12,15 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
-public class User implements Serializable {
+@TableName("user")
+public class UserEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增id
+     * 主键
      */
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
@@ -34,7 +36,7 @@ public class User implements Serializable {
     private String nickName;
 
     /**
-     * 账号
+     * 登录名
      */
     private String account;
 
@@ -42,16 +44,6 @@ public class User implements Serializable {
      * 密码
      */
     private String password;
-
-    /**
-     * 性别 1 男 2 女
-     */
-    private Integer sex;
-
-    /**
-     * 年龄
-     */
-    private Integer age;
 
     /**
      * 电话号码
@@ -62,11 +54,6 @@ public class User implements Serializable {
      * 邮箱
      */
     private String email;
-
-    /**
-     * 备注
-     */
-    private String rmark;
 
     /**
      * 状态 1正常 2 删除
@@ -144,22 +131,6 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Integer getSex() {
-        return sex;
-    }
-
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getTelphone() {
         return telphone;
     }
@@ -174,14 +145,6 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getRmark() {
-        return rmark;
-    }
-
-    public void setRmark(String rmark) {
-        this.rmark = rmark;
     }
 
     public Integer getStatus() {
@@ -250,15 +213,9 @@ public class User implements Serializable {
 
     public static final String PASSWORD = "password";
 
-    public static final String SEX = "sex";
-
-    public static final String AGE = "age";
-
     public static final String TELPHONE = "telphone";
 
     public static final String EMAIL = "email";
-
-    public static final String RMARK = "rmark";
 
     public static final String STATUS = "status";
 
@@ -276,17 +233,14 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserEntity{" +
         "id=" + id +
         ", userName=" + userName +
         ", nickName=" + nickName +
         ", account=" + account +
         ", password=" + password +
-        ", sex=" + sex +
-        ", age=" + age +
         ", telphone=" + telphone +
         ", email=" + email +
-        ", rmark=" + rmark +
         ", status=" + status +
         ", createId=" + createId +
         ", createName=" + createName +

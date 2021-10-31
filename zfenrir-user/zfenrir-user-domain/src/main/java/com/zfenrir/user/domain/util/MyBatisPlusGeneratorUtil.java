@@ -18,8 +18,9 @@ public class MyBatisPlusGeneratorUtil {
 
     private static final String url = "jdbc:mysql://127.0.0.1:3306/zfenrir";
     private static final String username = "root";
-    private static final String password = "123456";
-    private static final String[] tables = {"user", "role", "system", "role_permission", "user_role"};
+    private static final String password = "zhuliang";
+    private static final String[] tables =
+        {"user", "role", "system", "role_permission", "user_role", "permission", "system_operate_log"};
 
     public static void main(String[] args) {
         generator();
@@ -29,7 +30,7 @@ public class MyBatisPlusGeneratorUtil {
         FastAutoGenerator.create(url, username, password).globalConfig(builder -> {
             builder.author("zhuliang") // 设置作者
                 // .enableSwagger() // 开启 swagger 模式
-                // .fileOverride()// 覆盖已生成文件
+                .fileOverride()// 覆盖已生成文件
                 .outputDir("D:\\project\\myproject\\zfenrir\\zfenrir-user\\zfenrir-user-domain\\src\\main\\java"); // 指定输出目录
             ;
         }).packageConfig(builder -> {
@@ -42,8 +43,8 @@ public class MyBatisPlusGeneratorUtil {
                 .entity("entity.auto").service("service").mapper("mapper.auto").pathInfo(map); // 设置mapperXml生成路径
         }).strategyConfig(builder -> {
             builder.addInclude(tables) // 设置需要生成的表名
-                .entityBuilder().enableColumnConstant().controllerBuilder().superClass(ZfenrirBaseController.class)
-                .enableRestStyle()
+                .entityBuilder().enableColumnConstant().convertFileName((name) -> name.concat("Entity"))
+                .controllerBuilder().superClass(ZfenrirBaseController.class).enableRestStyle()
             // .addTablePrefix("t_", "c_") // 设置过滤表前缀
             ;
         })

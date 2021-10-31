@@ -2,6 +2,7 @@ package com.zfenrir.user.domain.entity.auto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -11,37 +12,43 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
-public class System implements Serializable {
+@TableName("role")
+public class RoleEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增id
+     * 自增主键
      */
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 系统ID
-     */
-    private String appId;
-
-    /**
-     * 系统名称
+     * 权限名称
      */
     private String name;
 
     /**
-     * 系统描述
+     * 权限名称
      */
-    private String desc;
+    private String code;
 
     /**
-     * 首页地址
+     * 类型 1 普通用户 2 系统角色 3 系统管理员 4 超级管理员
      */
-    private String homeUrl;
+    private Integer type;
+
+    /**
+     * 所属系统名称
+     */
+    private String appId;
+
+    /**
+     * 描述
+     */
+    private String desc;
 
     /**
      * 状态 1正常 2 删除
@@ -87,14 +94,6 @@ public class System implements Serializable {
         this.id = id;
     }
 
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public String getName() {
         return name;
     }
@@ -103,20 +102,36 @@ public class System implements Serializable {
         this.name = name;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
     public String getDesc() {
         return desc;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
-    }
-
-    public String getHomeUrl() {
-        return homeUrl;
-    }
-
-    public void setHomeUrl(String homeUrl) {
-        this.homeUrl = homeUrl;
     }
 
     public Integer getStatus() {
@@ -177,13 +192,15 @@ public class System implements Serializable {
 
     public static final String ID = "id";
 
-    public static final String APP_ID = "app_id";
-
     public static final String NAME = "name";
 
-    public static final String DESC = "desc";
+    public static final String CODE = "code";
 
-    public static final String HOME_URL = "home_url";
+    public static final String TYPE = "type";
+
+    public static final String APP_ID = "app_id";
+
+    public static final String DESC = "desc";
 
     public static final String STATUS = "status";
 
@@ -201,12 +218,13 @@ public class System implements Serializable {
 
     @Override
     public String toString() {
-        return "System{" +
+        return "RoleEntity{" +
         "id=" + id +
-        ", appId=" + appId +
         ", name=" + name +
+        ", code=" + code +
+        ", type=" + type +
+        ", appId=" + appId +
         ", desc=" + desc +
-        ", homeUrl=" + homeUrl +
         ", status=" + status +
         ", createId=" + createId +
         ", createName=" + createName +

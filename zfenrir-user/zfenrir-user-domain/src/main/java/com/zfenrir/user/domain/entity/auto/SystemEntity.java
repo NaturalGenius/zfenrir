@@ -2,6 +2,7 @@ package com.zfenrir.user.domain.entity.auto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -11,47 +12,38 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
-public class Role implements Serializable {
+@TableName("system")
+public class SystemEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增id
+     * 自增主键
      */
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 角色名称
+     * 系统id
      */
-    private String roleName;
+    private String appId;
 
     /**
-     * 角色编码
+     * 系统名称
      */
-    private String roleCode;
+    private String name;
 
     /**
-     * 角色类型 1 普通角色 2.系统角色, 3 系统管理员 4 超级管理员
-     */
-    private Integer roleType;
-
-    /**
-     * 所属系统名称
-     */
-    private String system;
-
-    /**
-     * 父ID
-     */
-    private Integer pid;
-
-    /**
-     * 描述
+     * 系统描述
      */
     private String desc;
+
+    /**
+     * 首页地址
+     */
+    private String homeUrl;
 
     /**
      * 状态 1正常 2 删除
@@ -97,44 +89,20 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getRoleCode() {
-        return roleCode;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleCode(String roleCode) {
-        this.roleCode = roleCode;
-    }
-
-    public Integer getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(Integer roleType) {
-        this.roleType = roleType;
-    }
-
-    public String getSystem() {
-        return system;
-    }
-
-    public void setSystem(String system) {
-        this.system = system;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDesc() {
@@ -143,6 +111,14 @@ public class Role implements Serializable {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getHomeUrl() {
+        return homeUrl;
+    }
+
+    public void setHomeUrl(String homeUrl) {
+        this.homeUrl = homeUrl;
     }
 
     public Integer getStatus() {
@@ -203,17 +179,13 @@ public class Role implements Serializable {
 
     public static final String ID = "id";
 
-    public static final String ROLE_NAME = "role_name";
+    public static final String APP_ID = "app_id";
 
-    public static final String ROLE_CODE = "role_code";
-
-    public static final String ROLE_TYPE = "role_type";
-
-    public static final String SYSTEM = "system";
-
-    public static final String PID = "pid";
+    public static final String NAME = "name";
 
     public static final String DESC = "desc";
+
+    public static final String HOME_URL = "home_url";
 
     public static final String STATUS = "status";
 
@@ -231,14 +203,12 @@ public class Role implements Serializable {
 
     @Override
     public String toString() {
-        return "Role{" +
+        return "SystemEntity{" +
         "id=" + id +
-        ", roleName=" + roleName +
-        ", roleCode=" + roleCode +
-        ", roleType=" + roleType +
-        ", system=" + system +
-        ", pid=" + pid +
+        ", appId=" + appId +
+        ", name=" + name +
         ", desc=" + desc +
+        ", homeUrl=" + homeUrl +
         ", status=" + status +
         ", createId=" + createId +
         ", createName=" + createName +

@@ -12,28 +12,63 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
-@TableName("role_permission")
-public class RolePermission implements Serializable {
+@TableName("permission")
+public class PermissionEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增id
+     * 自增主键
      */
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 权限ID
+     * 权限名称
      */
-    private Integer permissionId;
+    private String code;
 
     /**
-     * 角色ID
+     * 权限名称
      */
-    private Integer roleId;
+    private String name;
+
+    /**
+     * 父ID
+     */
+    private Integer pid;
+
+    /**
+     * 权限控制器
+     */
+    private String control;
+
+    /**
+     * 所属系统id
+     */
+    private String appId;
+
+    /**
+     * 菜单 1 菜单 2 按钮
+     */
+    private Integer menu;
+
+    /**
+     * 路径
+     */
+    private String url;
+
+    /**
+     * 请求方法 多个逗号隔开
+     */
+    private String method;
+
+    /**
+     * 描述
+     */
+    private String desc;
 
     /**
      * 状态 1正常 2 删除
@@ -79,20 +114,76 @@ public class RolePermission implements Serializable {
         this.id = id;
     }
 
-    public Integer getPermissionId() {
-        return permissionId;
+    public String getCode() {
+        return code;
     }
 
-    public void setPermissionId(Integer permissionId) {
-        this.permissionId = permissionId;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Integer getRoleId() {
-        return roleId;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
+    public String getControl() {
+        return control;
+    }
+
+    public void setControl(String control) {
+        this.control = control;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public Integer getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Integer menu) {
+        this.menu = menu;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public Integer getStatus() {
@@ -153,9 +244,23 @@ public class RolePermission implements Serializable {
 
     public static final String ID = "id";
 
-    public static final String PERMISSION_ID = "permission_id";
+    public static final String CODE = "code";
 
-    public static final String ROLE_ID = "role_id";
+    public static final String NAME = "name";
+
+    public static final String PID = "pid";
+
+    public static final String CONTROL = "control";
+
+    public static final String APP_ID = "app_id";
+
+    public static final String MENU = "menu";
+
+    public static final String URL = "url";
+
+    public static final String METHOD = "method";
+
+    public static final String DESC = "desc";
 
     public static final String STATUS = "status";
 
@@ -173,10 +278,17 @@ public class RolePermission implements Serializable {
 
     @Override
     public String toString() {
-        return "RolePermission{" +
+        return "PermissionEntity{" +
         "id=" + id +
-        ", permissionId=" + permissionId +
-        ", roleId=" + roleId +
+        ", code=" + code +
+        ", name=" + name +
+        ", pid=" + pid +
+        ", control=" + control +
+        ", appId=" + appId +
+        ", menu=" + menu +
+        ", url=" + url +
+        ", method=" + method +
+        ", desc=" + desc +
         ", status=" + status +
         ", createId=" + createId +
         ", createName=" + createName +

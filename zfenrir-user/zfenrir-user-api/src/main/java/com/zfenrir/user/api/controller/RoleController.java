@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/roleEntity")
 public class RoleController extends ZfenrirBaseController {
 
 }

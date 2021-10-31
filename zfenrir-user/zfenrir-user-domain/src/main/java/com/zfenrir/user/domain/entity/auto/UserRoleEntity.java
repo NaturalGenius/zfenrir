@@ -12,15 +12,15 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zhuliang
- * @since 2021-10-30
+ * @since 2021-10-31
  */
 @TableName("user_role")
-public class UserRole implements Serializable {
+public class UserRoleEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 自增id
+     * 自增主键
      */
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
@@ -173,7 +173,7 @@ public class UserRole implements Serializable {
 
     @Override
     public String toString() {
-        return "UserRole{" +
+        return "UserRoleEntity{" +
         "id=" + id +
         ", userId=" + userId +
         ", roleId=" + roleId +
