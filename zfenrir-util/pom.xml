@@ -54,6 +54,11 @@
             <artifactId>junit-vintage-engine</artifactId>
             <version>5.7.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
   </dependencies>
   <build>
         <finalName>zfenrir-util-${zfenrir.version}</finalName>

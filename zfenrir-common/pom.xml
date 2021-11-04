@@ -25,6 +25,11 @@
         <scope>provided</scope>
      </dependency>
      <dependency>
+         <groupId>com.baomidou</groupId>
+         <artifactId>mybatis-plus-boot-starter</artifactId>
+         <scope>provided</scope>
+     </dependency>
+     <dependency>
          <groupId>org.aspectj</groupId>
          <artifactId>aspectjrt</artifactId>
          <scope>provided</scope>

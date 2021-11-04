@@ -1,6 +1,9 @@
 package com.zfenrir.user.api.controller;
 
 import com.zfenrir.common.common.abstracts.ZfenrirBaseController;
+import com.zfenrir.common.constant.ZfenrirUrlPrefixConstant;
+import com.zfenrir.user.domain.entity.auto.RoleEntity;
+import com.zfenrir.user.domain.service.IRoleService;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-10-31
  */
 @RestController
-@RequestMapping("/roleEntity")
-public class RoleController extends ZfenrirBaseController {
-
+@RequestMapping(ZfenrirUrlPrefixConstant.USER_PREFIX +"/role")
+public class RoleController extends ZfenrirBaseController<RoleEntity, IRoleService> {
 }
