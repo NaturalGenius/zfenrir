@@ -10,6 +10,7 @@
   	<module>zfenrir-util</module>
   	<module>zfenrir-dependencies</module>
   	<module>zfenrir-core</module>
+  	<module>zfenrir-mq</module>
   </modules>
   
   <properties>
