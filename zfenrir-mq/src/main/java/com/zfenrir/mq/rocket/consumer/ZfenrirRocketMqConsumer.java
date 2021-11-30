@@ -126,6 +126,7 @@ public class ZfenrirRocketMqConsumer {
         pullConsumer.subscribe(mqClient.topic(), mqClient.tag());
         pullConsumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
         pullConsumer.setAutoCommit(false);
+        pullConsumer.setPullThreadNums(mqClient.consumeThreadMin());
         Thread thread = new Thread(() -> {
             while (true) {
                 List<MessageExt> messageExts = pullConsumer.poll();
