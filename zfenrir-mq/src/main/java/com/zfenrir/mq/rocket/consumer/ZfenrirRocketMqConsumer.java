@@ -1,14 +1,8 @@
 package com.zfenrir.mq.rocket.consumer;
 
-import java.lang.reflect.Method;
-import java.text.MessageFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.zfenrir.mq.rocket.common.ConsumerModel;
+import com.zfenrir.mq.rocket.common.ZfenrirMqClient;
+import com.zfenrir.mq.rocket.exception.ZfenrirRocketMqException;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.rocketmq.client.consumer.DefaultLitePullConsumer;
@@ -27,9 +21,15 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zfenrir.mq.rocket.common.ConsumerModel;
-import com.zfenrir.mq.rocket.common.ZfenrirMqClient;
-import com.zfenrir.mq.rocket.exception.ZfenrirRocketMqException;
+import java.lang.reflect.Method;
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class ZfenrirRocketMqConsumer {
 
@@ -50,7 +50,10 @@ public class ZfenrirRocketMqConsumer {
      * 启动线程池
      */
     private ExecutorService executorService;
-    
+    /**
+     * 是否懒加载 
+     */
+    private boolean lazy = false;
     private Logger logger = LoggerFactory.getLogger(getClass());
     public ZfenrirRocketMqConsumer(String consumerGroup, String namesrvAddr) {
         this.consumerGroup = consumerGroup;
@@ -91,6 +94,10 @@ public class ZfenrirRocketMqConsumer {
     }
     
     public void start() {
+        if (!lazy) {
+            logger.info("不是懒加载方式启动");
+            return;
+        }
         pushConsumerMap.forEach((groupName, consumer) -> {
             try {
                 consumer.start();
@@ -119,7 +126,8 @@ public class ZfenrirRocketMqConsumer {
         executorService.shutdown();
     }
     
-    private DefaultLitePullConsumer createDefaultLitePullConsumer(ZfenrirMqClient mqClient, ZfenrirConsumerCallBack consumerCallBack) throws MQClientException {
+    private DefaultLitePullConsumer createDefaultLitePullConsumer(ZfenrirMqClient mqClient,
+        ZfenrirConsumerCallBack consumerCallBack) throws MQClientException {
         DefaultLitePullConsumer pullConsumer = new DefaultLitePullConsumer(mqClient.consumerGroup());
         pullConsumer.setNamesrvAddr(namesrvAddr);
         pullConsumer.setInstanceName(consumerGroup);
@@ -139,8 +147,11 @@ public class ZfenrirRocketMqConsumer {
                 }
                 pullConsumer.commitSync();
             }
-       }, "ZfenrirRocketMqConsume client ");
-       pullConsumerThreadMap.put(pullConsumer, thread);
+        }, "ZfenrirRocketMqConsume client ");
+        if (!lazy) {
+            pullConsumer.start();
+        }
+        pullConsumerThreadMap.put(pullConsumer, thread);
         return pullConsumer;
     }
     
@@ -161,6 +172,9 @@ public class ZfenrirRocketMqConsumer {
             pushConsumer.registerMessageListener((MessageListenerOrderly) messageListener);
         }else {
             pushConsumer.registerMessageListener((MessageListenerConcurrently) messageListener);
+        }
+        if (!lazy) {
+            pushConsumer.start();
         }
         return pushConsumer;
     }
@@ -195,4 +209,14 @@ public class ZfenrirRocketMqConsumer {
             }
         };
     }
+
+    public boolean isLazy() {
+        return lazy;
+    }
+
+    public void setLazy(boolean lazy) {
+        this.lazy = lazy;
+    }
+    
+    
 }

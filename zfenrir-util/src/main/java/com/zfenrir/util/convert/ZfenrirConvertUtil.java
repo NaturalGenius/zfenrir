@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.zfenrir.util.json.JsonUtil;
 
 import cn.hutool.core.convert.Convert;
 
@@ -30,7 +30,7 @@ public class ZfenrirConvertUtil extends Convert{
         if (CollectionUtils.isEmpty(collection) || clazz == null) {
             return Lists.newArrayList();
         }
-        return JSON.parseArray(JSON.toJSONString(collection), clazz);
+        return JsonUtil.parseArray(JsonUtil.toJsonString(collection), clazz);
     };
    
     /**
@@ -44,6 +44,6 @@ public class ZfenrirConvertUtil extends Convert{
         if (obj == null || clazz == null) {
             return null;
         }
-        return JSON.parseObject(JSON.toJSONString(obj), clazz);
+        return JsonUtil.parseObject(JsonUtil.toJsonString(obj), clazz);
     };
 }
