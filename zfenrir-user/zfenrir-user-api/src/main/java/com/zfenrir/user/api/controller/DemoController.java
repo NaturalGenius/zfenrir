@@ -9,23 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zfenrir.common.annotation.ResponseHandleNo;
 import com.zfenrir.common.constant.ZfenrirUrlPrefixConstant;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 @RestController
 @RequestMapping(ZfenrirUrlPrefixConstant.USER_PREFIX + "/demo")
-@Api("Demo")
+//@Api("Demo")
 public class DemoController {
 
     @GetMapping("/test")
-    @ApiOperation("demo接口-1")
+ //   @ApiOperation("demo接口-1")
     public String demoTest() {
         return String.valueOf(ThreadLocalRandom.current().nextInt(10000));
     }
     
     @GetMapping("/test2")
     @ResponseHandleNo
-    @ApiOperation("demo接口-2")
+  //  @ApiOperation("demo接口-2")
     public String demoTest2() {
         return String.valueOf(ThreadLocalRandom.current().nextInt(10000));
     }

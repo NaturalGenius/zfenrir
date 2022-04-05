@@ -11,6 +11,7 @@
   	<module>zfenrir-dependencies</module>
   	<module>zfenrir-core</module>
   	<module>zfenrir-mq</module>
+  	<module>zfenrir-gateway</module>
   </modules>
   
   <properties>

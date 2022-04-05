@@ -2,47 +2,45 @@ package com.zfenrir.user.api.vo.auth;
 
 import java.time.LocalDateTime;
 
-import io.swagger.annotations.ApiModelProperty;
-
 public class RoleVO {
 
-    @ApiModelProperty("角色id")
+   // @ApiModelProperty("角色id")
     private Integer id;
 
-    @ApiModelProperty("角色名称")
+  //  @ApiModelProperty("角色名称")
     private String name;
 
-    @ApiModelProperty("角色code")
+  //  @ApiModelProperty("角色code")
     private String code;
 
-    @ApiModelProperty("类型 1 普通用户 2 系统角色 3 系统管理员 4 超级管理员")
+  //  @ApiModelProperty("类型 1 普通用户 2 系统角色 3 系统管理员 4 超级管理员")
     private Integer type;
 
-    @ApiModelProperty("所属系统ID")
+  //  @ApiModelProperty("所属系统ID")
     private String appId;
 
-    @ApiModelProperty("描述")
+  //  @ApiModelProperty("描述")
     private String desc;
 
-    @ApiModelProperty("状态 1正常 2 停用")
+  //  @ApiModelProperty("状态 1正常 2 停用")
     private Integer status;
 
-    @ApiModelProperty("创建人id")
+  //  @ApiModelProperty("创建人id")
     private Integer createId;
 
-    @ApiModelProperty("创建人名称")
+  //  @ApiModelProperty("创建人名称")
     private String createName;
 
-    @ApiModelProperty("创建时间")
+  //  @ApiModelProperty("创建时间")
     private LocalDateTime createTime;
 
-    @ApiModelProperty("更新人id")
+  //  @ApiModelProperty("更新人id")
     private Integer updateId;
 
-    @ApiModelProperty("更新人名称")
+  //  @ApiModelProperty("更新人名称")
     private String updateName;
 
-    @ApiModelProperty("更新时间")
+ //   @ApiModelProperty("更新时间")
     private LocalDateTime updateTime;
 
     public Integer getId() {

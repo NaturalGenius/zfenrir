@@ -1,6 +1,7 @@
 spring:
   profiles:
     active:    - qa
+  main:    allow-circular-references: true #运行循环引用
   swagger:    enabled: true
     base-package: com.zfenrir.user.api.controller
     title: zfenrir-user-api

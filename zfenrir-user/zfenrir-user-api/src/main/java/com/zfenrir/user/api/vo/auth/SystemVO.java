@@ -1,18 +1,16 @@
 package com.zfenrir.user.api.vo.auth;
 
-import io.swagger.annotations.ApiModelProperty;
-
 public class SystemVO {
-    @ApiModelProperty("自增id")
+  //  @ApiModelProperty("自增id")
     private Integer id;
-    @ApiModelProperty("系统id")
+  //  @ApiModelProperty("系统id")
     private String appId;
-    @ApiModelProperty("系统名称")
+ //   @ApiModelProperty("系统名称")
     private String name;
 
-    @ApiModelProperty("系统描述")
+   // @ApiModelProperty("系统描述")
     private String desc;
-    @ApiModelProperty("首页地址")
+  //  @ApiModelProperty("首页地址")
     private String homeUrl;
     public Integer getId() {
         return id;

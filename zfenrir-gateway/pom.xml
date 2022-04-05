@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zfenrir</groupId>
+    <artifactId>zfenrir</artifactId>
+    <version>${zfenrir.version}</version>
+  </parent>
+  <artifactId>zfenrir-gateway</artifactId>
+  
+  <dependencyManagement>
+     <dependencies>
+        <dependency>
+            <groupId>com.zfenrir</groupId>
+            <artifactId>zfenrir-dependencies</artifactId>
+            <version>${zfenrir.dependencies.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+     </dependencies>
+  </dependencyManagement>
+  
+  
+  <dependencies>
+     <dependency>
+            <groupId>com.zfenrir</groupId>
+            <artifactId>zfenrir-dependencies</artifactId>
+            <version>${zfenrir.dependencies.version}</version>
+            <type>pom</type>
+            <exclusions>
+               <exclusion>
+			       <groupId>org.springframework.boot</groupId>
+			       <artifactId>spring-boot-starter-web</artifactId>
+               </exclusion>
+               <exclusion>
+                  <groupId>com.battcn</groupId>
+                  <artifactId>swagger-spring-boot-starter</artifactId>
+               </exclusion>
+               <exclusion>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+               </exclusion>
+            </exclusions>
+     </dependency>
+     <dependency>
+        <groupId>org.springframework.cloud</groupId>
+	    <artifactId>spring-cloud-starter-gateway</artifactId>
+     </dependency>
+  </dependencies>
+</project>

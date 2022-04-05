@@ -5,14 +5,12 @@ import com.zfenrir.common.common.entity.PageParameter;
 import com.zfenrir.common.enums.ZfenrirSqlOperateEnum;
 import com.zfenrir.user.domain.entity.auto.RoleEntity;
 
-import io.swagger.annotations.ApiModelProperty;
-
 public class RoleForm extends PageParameter{
 
-    @ApiModelProperty("角色名称")
+   // @ApiModelProperty("角色名称")
     @WrapperBuild(columnName = RoleEntity.NAME, operator = ZfenrirSqlOperateEnum.LIKE)
     private String name;
-    @ApiModelProperty("系统标识")
+  //  @ApiModelProperty("系统标识")
     @WrapperBuild(columnName = RoleEntity.APP_ID)
     private String appId;
 

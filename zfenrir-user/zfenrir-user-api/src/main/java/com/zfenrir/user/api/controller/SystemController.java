@@ -7,9 +7,6 @@ import com.zfenrir.user.domain.entity.auto.SystemEntity;
 import com.zfenrir.user.domain.service.ISystemService;
 import com.zfenrir.util.convert.ZfenrirConvertUtil;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(ZfenrirUrlPrefixConstant.USER_PREFIX +"/system")
-@Api("系统管理控制器")
+//@Api("系统管理控制器")
 public class SystemController extends ZfenrirBaseController<SystemEntity, ISystemService> {
 
     @Autowired
     private ISystemService systemService;
     
     @GetMapping("/")
-    @ApiOperation("获取所有的系统列表")
+  //  @ApiOperation("获取所有的系统列表")
     public List<SystemVO> listAllSystem() {
         return ZfenrirConvertUtil.convertList(systemService.list(), SystemVO.class);
     }

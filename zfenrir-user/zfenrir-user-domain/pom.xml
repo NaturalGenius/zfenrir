@@ -31,6 +31,10 @@
             <artifactId>zfenrir-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
      </dependency>
+     <dependency>
+               <groupId>com.baomidou</groupId>
+               <artifactId>mybatis-plus-generator</artifactId>
+         </dependency>
   </dependencies>
   <build>
         <finalName>zfenrir-user-domain-${zfenrir.version}</finalName>

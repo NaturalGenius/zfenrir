@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:  cloud:    gateway:      routes:
+      - id: test        predicates:        - Path=/gateway/**
+        filters:        - StripPrefix=1
+        uri:          https://blog.csdn.net/qq_45087487/article/details/120386570
+      - id: zfenrir-user-api
+        predicates:        - Path=/zfenrir-user-api/**
+        uri: http://127.0.0.1:8081/
+        filters:
+        - StripPrefix=1
+        - name: GpDefine
+          args:            name: GpDefineTest
+                
