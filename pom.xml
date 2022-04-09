@@ -18,5 +18,6 @@
     <zfenrir.dependencies.version>1.0.0-SNAPSHOT</zfenrir.dependencies.version>
     <zfenrir.version>1.0.0-SNAPSHOT</zfenrir.version>
     <slf4j.version>1.7.25</slf4j.version>
+    <compile.version>1.8</compile.version>
   </properties>
 </project>

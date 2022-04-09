@@ -1,6 +1,9 @@
 server:
   port: 8080
-spring:  cloud:    gateway:      routes:
+spring:
+  application:    name: zfenrir-gateway  cloud:
+    sentinel:      transport:
+        dashboard: localhost:8088     gateway:      routes:
       - id: test        predicates:        - Path=/gateway/**
         filters:        - StripPrefix=1
         uri:          https://blog.csdn.net/qq_45087487/article/details/120386570
@@ -10,5 +13,4 @@ spring:  cloud:    gateway:      routes:
         filters:
         - StripPrefix=1
         - name: GpDefine
-          args:            name: GpDefineTest
-                
+          args:            name: GpDefineTest          
