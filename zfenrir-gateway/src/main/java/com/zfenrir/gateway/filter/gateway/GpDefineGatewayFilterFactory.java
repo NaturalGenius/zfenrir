@@ -24,6 +24,7 @@ public class GpDefineGatewayFilterFactory extends AbstractGatewayFilterFactory<G
         super(GpConfig.class);
     }
     
+    @Override
     public GatewayFilter apply(GpConfig config) {
         return ((exchange, chain) -> {
             pre(exchange, chain);
