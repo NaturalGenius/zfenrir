@@ -9,14 +9,14 @@
   
   <dependencyManagement>
      <dependencies>
-        <dependency>
+         <dependency>
             <groupId>com.zfenrir</groupId>
             <artifactId>zfenrir-dependencies</artifactId>
             <version>${zfenrir.dependencies.version}</version>
             <type>pom</type>
             <scope>import</scope>
-        </dependency>
-     </dependencies>
+         </dependency>
+      </dependencies>
   </dependencyManagement>
   
   
@@ -51,9 +51,23 @@
         <version>1.8.3</version>
      </dependency>
      <dependency>
-        <groupId>com.alibaba.csp</groupId>
-        <artifactId>sentinel-transport-simple-http</artifactId>
-        <version>1.8.3</version>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        <version>2021.0.1.0</version>
      </dependency>
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+     </dependency>
+     <!--fegin组件-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+    <!-- Feign Client for loadBalancing -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-loadbalancer</artifactId>
+    </dependency>
   </dependencies>
 </project>

@@ -1,4 +1,5 @@
 spring:
+  application:    name: zfenrir-user-api
   profiles:
     active:    - qa
   main:    allow-circular-references: true #运行循环引用

@@ -2,15 +2,28 @@ server:
   port: 8080
 spring:
   application:    name: zfenrir-gateway  cloud:
-    sentinel:      transport:
-        dashboard: localhost:8088     gateway:      routes:
+    sentinel:      transport:        dashboard: 127.0.0.1:8088
+    nacos:      discovery:        server-addr: 10.12.1.191:8848
+        enabled: true
+    gateway:
+      discovery:        locator:          enabled: false
+          lower-case-service-id: true      routes:
       - id: test        predicates:        - Path=/gateway/**
         filters:        - StripPrefix=1
         uri:          https://blog.csdn.net/qq_45087487/article/details/120386570
+#      - id: test-after-date-time
+#        predicates:#        - After=2022-05-31T14:13:28.877+08:00[Asia/Shanghai]
+#        uri:#          https://www.baidu.com/
+#      - id: test-before-date-time
+#        predicates:#        - Before=2022-05-31T14:13:28.877+08:00[Asia/Shanghai]
+#        uri:#          https://www.json.cn/
       - id: zfenrir-user-api
         predicates:        - Path=/zfenrir-user-api/**
-        uri: http://127.0.0.1:8081/
+        uri: lb://zfenrir-user-api
         filters:
         - StripPrefix=1
         - name: GpDefine
-          args:            name: GpDefineTest          
+          args:            name: GpDefineTest
+        metadata:          connect-timeout: 20000
+          response-timeout: 20000
+          
