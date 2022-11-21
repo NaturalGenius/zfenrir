@@ -1,8 +1,10 @@
 package com.zfenrir.user.api.config;
 
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.support.config.FastJsonConfig;
+import com.alibaba.fastjson2.support.spring.http.converter.FastJsonHttpMessageConverter;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.http.MediaType;
@@ -13,7 +15,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
-import java.util.ArrayList;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,21 +38,15 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
             iterator.next();
             iterator.remove();
         }
-        // 1、需要先定义一个 convert 转换消息的对象;
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        // 2、添加fastJson 的配置信息，比如：是否要格式化返回的json数据;
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteDateUseDateFormat, SerializerFeature.PrettyFormat,
-            SerializerFeature.DisableCircularReferenceDetect, SerializerFeature.WriteNonStringKeyAsString);
-        // 此处配置时间全局格式化禁用 会导致@JSONField失效
-        // fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
-        fastConverter.setFastJsonConfig(fastJsonConfig);
-        // 处理中文乱码问题
-        List<MediaType> fastMediaTypes = new ArrayList<>();
-        fastMediaTypes.add(MediaType.APPLICATION_JSON);
-        fastMediaTypes.add(new MediaType("application", "*+json", Charset.forName("UTF-8")));
-        fastConverter.setSupportedMediaTypes(fastMediaTypes);
-        HttpMessageConverter<?> converter = fastConverter;
+        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        //自定义配置...
+        FastJsonConfig config = new FastJsonConfig();
+      //  config.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        config.setReaderFeatures(JSONReader.Feature.FieldBased, JSONReader.Feature.SupportArrayToBean);
+        config.setWriterFeatures(JSONWriter.Feature.WriteMapNullValue, JSONWriter.Feature.PrettyFormat);
+        converter.setFastJsonConfig(config);
+        converter.setDefaultCharset(StandardCharsets.UTF_8);
+        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_JSON));
         StringHttpMessageConverter stringHttpMessageConverter =
             new StringHttpMessageConverter(Charset.forName("UTF-8"));
         converters.add(converter);

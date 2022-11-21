@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zfenrir.common.annotation.ResponseHandleNo;
 import com.zfenrir.common.constant.ZfenrirUrlPrefixConstant;
+import com.zfenrir.user.api.vo.DemoVO;
 
 @RestController
 @RequestMapping(ZfenrirUrlPrefixConstant.USER_PREFIX + "/demo")
@@ -25,5 +26,9 @@ public class DemoController {
   //  @ApiOperation("demo接口-2")
     public String demoTest2() {
         return String.valueOf(ThreadLocalRandom.current().nextInt(10000));
+    }
+    @GetMapping("/test3")
+    public DemoVO demoTest3() {
+        return new DemoVO();
     }
 }

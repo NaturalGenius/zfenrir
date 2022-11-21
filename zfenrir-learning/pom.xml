@@ -2,27 +2,15 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zfenrir</groupId>
-    <artifactId>zfenrir-user</artifactId>
+    <artifactId>zfenrir</artifactId>
     <version>${zfenrir.version}</version>
   </parent>
-  <artifactId>zfenrir-user-api</artifactId>
+  <artifactId>zfenrir-learning</artifactId>
+  
   <dependencies>
-     <dependency>
-          <groupId>com.zfenrir</groupId>
-          <artifactId>zfenrir-user-domain</artifactId>
-          <version>1.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-         <groupId>com.alibaba.cloud</groupId>
-         <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-    </dependency>
-    <dependency>
-         <groupId>com.alibaba.fastjson2</groupId>
-         <artifactId>fastjson2-extension</artifactId>
-    </dependency>
   </dependencies>
   <build>
-        <finalName>zfenrir-user-api-${zfenrir.version}</finalName>
+        <finalName>zfenrir-learning-${zfenrir.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -47,8 +35,6 @@
                         <nonFilteredFileExtension>p12</nonFilteredFileExtension>
                         <nonFilteredFileExtension>pem</nonFilteredFileExtension>
                         <nonFilteredFileExtension>pfx</nonFilteredFileExtension>
-                        <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
-                        <nonFilteredFileExtension>xls</nonFilteredFileExtension>
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>

@@ -12,12 +12,80 @@
   	<module>zfenrir-core</module>
   	<module>zfenrir-mq</module>
   	<module>zfenrir-gateway</module>
+  	<module>zfenrir-learning</module>
   </modules>
   
   <properties>
-    <zfenrir.dependencies.version>1.0.0-SNAPSHOT</zfenrir.dependencies.version>
-    <zfenrir.version>1.0.0-SNAPSHOT</zfenrir.version>
-    <slf4j.version>1.7.25</slf4j.version>
-    <compile.version>1.8</compile.version>
+     <zfenrir.dependencies.version>1.0.0-SNAPSHOT</zfenrir.dependencies.version>
+     <zfenrir.version>1.0.0-SNAPSHOT</zfenrir.version>
+     <slf4j.version>1.7.25</slf4j.version>
+     <compile.version>1.8</compile.version>
+     <spring.boot.version>2.6.1</spring.boot.version>
+     <spring.cloud.version>2021.0.1</spring.cloud.version>
+     <battcn.swagger.version>2.1.5-RELEASE</battcn.swagger.version>
+     <mybatis.plus.version>3.4.3.4</mybatis.plus.version>
+     <mybatis.plus.generator.version>3.5.1</mybatis.plus.generator.version>
+     <fastjson.version>2.0.6</fastjson.version>
   </properties>
+  <dependencyManagement>
+      <dependencies>
+           <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+			    <groupId>org.springframework.cloud</groupId>
+			    <artifactId>spring-cloud-dependencies</artifactId>
+			    <version>${spring.cloud.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
+		    </dependency>
+            <dependency>
+                 <groupId>com.battcn</groupId>
+                 <artifactId>swagger-spring-boot-starter</artifactId>
+                 <version>${battcn.swagger.version}</version>
+            </dependency>
+            <dependency>
+               <groupId>com.baomidou</groupId>
+               <artifactId>mybatis-plus-boot-starter</artifactId>
+               <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+               <groupId>com.baomidou</groupId>
+               <artifactId>mybatis-plus-generator</artifactId>
+               <version>${mybatis.plus.generator.version}</version>
+            </dependency>
+            <dependency>
+	            <groupId>com.alibaba.fastjson2</groupId>
+	            <artifactId>fastjson2</artifactId>
+	            <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                  <groupId>com.alibaba.fastjson2</groupId>
+                  <artifactId>fastjson2-extension</artifactId>
+                  <version>${fastjson.version}</version>
+            </dependency>
+           <dependency>
+             <groupId>com.alibaba.cloud</groupId>
+             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+             <version>2021.0.1.0</version>
+           </dependency>
+      </dependencies>
+  </dependencyManagement>
+  <dependencies>
+        <!-- 模板引擎 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+	        <groupId>com.alibaba.fastjson2</groupId>
+	        <artifactId>fastjson2</artifactId>
+        </dependency>
+	</dependencies>
 </project>

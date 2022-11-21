@@ -6,18 +6,6 @@
     <version>${zfenrir.version}</version>
   </parent>
   <artifactId>zfenrir-common</artifactId>
-  <dependencyManagement>
-     <dependencies>
-        <dependency>
-            <groupId>com.zfenrir</groupId>
-            <artifactId>zfenrir-dependencies</artifactId>
-            <version>${zfenrir.dependencies.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-     </dependencies>
-  </dependencyManagement>
-  
   <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>

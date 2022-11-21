@@ -27,6 +27,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.google.common.collect.Sets;
 import com.zfenrir.common.annotation.ApiOperateLog;
 import com.zfenrir.common.exception.ZfenrirException;
+import com.zfenrir.util.json.JsonUtil;
 
 import cn.hutool.json.JSONUtil;
 
@@ -135,7 +136,7 @@ public class ApiOperateLogAspect {
         ApiOperateLogModel operateLogModel = new ApiOperateLogModel(null, request.getRequestURL().toString(),
                 request.getRemoteAddr(), signature.getDeclaringTypeName() + "." + signature.getName(),
                 argJson, execTime , desc, JSONUtil.toJsonStr(result));
-        String logJsonStr = JSONUtil.toJsonStr(operateLogModel);
+        String logJsonStr = JsonUtil.toJsonString(operateLogModel);
         switch (logLevel) {
             case INFO: logger.info(logJsonStr); break;
             case WARN: logger.warn(logJsonStr); break;
