@@ -1,0 +1,21 @@
+package com.zfenrir.account.domain.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zfenrir.account.domain.entity.auto.SystemOperateLogEntity;
+import com.zfenrir.account.domain.mapper.auto.SystemOperateLogMapper;
+import com.zfenrir.account.domain.service.ISystemOperateLogService;
+
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author zhuliang
+ * @since 2021-10-31
+ */
+@Service
+public class SystemOperateLogServiceImpl extends ServiceImpl<SystemOperateLogMapper, SystemOperateLogEntity> implements ISystemOperateLogService {
+
+}

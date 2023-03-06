@@ -4,7 +4,7 @@ spring:
   application:    name: zfenrir-gateway  cloud:
     sentinel:      transport:        dashboard: 127.0.0.1:8088
     nacos:      discovery:        server-addr: 10.12.1.191:8848
-        enabled: true
+        enabled: false
     gateway:
       discovery:        locator:          enabled: false
           lower-case-service-id: true      routes:

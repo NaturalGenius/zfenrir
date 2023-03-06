@@ -5,7 +5,7 @@
   <version>${zfenrir.version}</version>
   <packaging>pom</packaging>
   <modules>
-  	<module>zfenrir-user</module>
+  	<module>zfenrir-account</module>
   	<module>zfenrir-common</module>
   	<module>zfenrir-util</module>
   	<module>zfenrir-dependencies</module>
